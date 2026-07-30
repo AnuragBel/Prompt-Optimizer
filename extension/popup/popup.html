@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <<div class="container">
+    <div class="header">
+      <h2>Prompt Enhancer</h2>
+      <button id="maximizeBtn" title="Open in full tab">⛶</button>
+    </div>
+
+    <label for="rawPrompt">Raw Prompt</label>
+    <textarea id="rawPrompt" placeholder="Place your prompt here..."></textarea>
+
+    <button id="enhanceBtn">✨ Enhance</button>
+    <div id="loading">Enhancing...</div>
+
+    <label for="output">Structured Prompt</label>
+    <textarea id="output" placeholder="Your enhanced prompt will appear here..." readonly></textarea>
+
+    <button id="copyBtn">Copy to Clipboard</button>
+  <script src="popup.js"></script>
+</body>
+</html>

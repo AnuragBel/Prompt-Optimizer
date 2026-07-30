@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Prompt Enhancer",
+  "version": "1.0.0",
+  "description": "Turn raw prompts into structured, professional prompts instantly.",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://your-backend.onrender.com/*"]
+}

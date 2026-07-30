@@ -1,0 +1,22 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <rect width="128" height="128" rx="28" fill="#4F46E5"/>
+
+  <!-- Prompt chevron ">" -->
+  <path d="M40 36 L72 64 L40 92" 
+        stroke="#FFFFFF" 
+        stroke-width="12" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"/>
+
+  <!-- Underline (cursor/prompt line) -->
+  <rect x="78" y="86" width="26" height="10" rx="5" fill="#FFFFFF"/>
+
+  <!-- Enhancement spark -->
+  <path d="M96 30
+           C 97 36, 101 40, 107 41
+           C 101 42, 97 46, 96 52
+           C 95 46, 91 42, 85 41
+           C 91 40, 95 36, 96 30 Z"
+        fill="#FBBF24"/>
+</svg>
