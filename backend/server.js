@@ -5,7 +5,9 @@ const fetch = require("node-fetch");
 
 const app = express();
 app.use(express.json());
-app.use(cors()); // we'll lock this down to your extension ID in Step 7
+app.use(cors({
+  origin: "chrome-extension://mgjpgipiehbbapllfeapgajmkjgdanoo"
+})); // we'll lock this down to your extension ID in Step 7
 
 const META_PROMPT_TEMPLATE = `You are an elite prompt engineer who writes prompts the way top AI power-users do — 
 as a single, dense, flowing paragraph, NOT as labeled sections (no "ROLE:", "TASK:", etc.).
