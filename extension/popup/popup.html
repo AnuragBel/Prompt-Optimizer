@@ -2,13 +2,16 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="../icons/icon48.png">
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  <<div class="container">
+  <div class="container">
     <div class="header">
-      <h2>Prompt Enhancer</h2>
-      <button id="maximizeBtn" title="Open in full tab">⛶</button>
+      <h2>Prompt Enhancer ✨</h2>
+      <div class="header-icons">
+        <button id="maximizeBtn" title="Open in full tab">⛶</button>
+      </div>
     </div>
 
     <label for="rawPrompt">Raw Prompt</label>
@@ -18,9 +21,13 @@
     <div id="loading">Enhancing...</div>
 
     <label for="output">Structured Prompt</label>
-    <textarea id="output" placeholder="Your enhanced prompt will appear here..." readonly></textarea>
+    <div class="textarea-wrapper">
+      <textarea id="output" placeholder="Your enhanced prompt will appear here..." readonly></textarea>
+      <div class="fade-bottom"></div>
+    </div>
 
     <button id="copyBtn">Copy to Clipboard</button>
+  </div>
   <script src="popup.js"></script>
 </body>
 </html>

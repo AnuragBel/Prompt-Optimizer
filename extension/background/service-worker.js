@@ -1,5 +1,40 @@
 const API_URL = "http://localhost:3000/api/enhance";
 
+let popupWindowId = null;
+
+chrome.action.onClicked.addListener(() => {
+  if (popupWindowId !== null) {
+    chrome.windows.get(popupWindowId, {}, (win) => {
+      if (chrome.runtime.lastError || !win) {
+        popupWindowId = null;
+        createPopupWindow();
+      } else {
+        chrome.windows.update(popupWindowId, { focused: true });
+      }
+    });
+  } else {
+    createPopupWindow();
+  }
+});
+
+function createPopupWindow() {
+  chrome.windows.create(
+    {
+      url: chrome.runtime.getURL("popup/popup.html"),
+      type: "popup",
+      width: 420,
+      height: 600
+    },
+    (win) => {
+      popupWindowId = win.id;
+    }
+  );
+}
+
+chrome.windows.onRemoved.addListener((closedId) => {
+  if (closedId === popupWindowId) popupWindowId = null;
+});
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.type === "ENHANCE_PROMPT") {
     fetch(API_URL, {

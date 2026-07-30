@@ -1,70 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
 body {
   width: 380px;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  height: auto;            /* let content define height, don't force extra space */
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   margin: 0;
   background: #f8f9fc;
 }
 
 .container {
-  padding: 16px;
+  padding: 22px;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-h2 {
-  margin: 0 0 12px 0;
-  font-size: 16px;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
   color: #1e1b4b;
+  letter-spacing: -0.3px;
+  line-height: 32px;
+}
+
+.header-icons {
+  display: flex;
+  gap: 8px;
+}
+
+#maximizeBtn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #e0e0ea;
+  background: white;
+  font-size: 15px;
+  cursor: pointer;
+  color: #4F46E5;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.05);
+  transition: all 0.15s ease;
+}
+
+#maximizeBtn:hover {
+  background: #eef2ff;
+  border-color: #4F46E5;
+  box-shadow: 0 2px 4px rgb(79 70 229 / 0.15);
 }
 
 label {
   display: block;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #6b7280;
-  margin-bottom: 4px;
-  margin-top: 10px;
+  letter-spacing: 0.5px;
+  color: #374151;
+  margin-top: 14px;
+  margin-bottom: 8px;
 }
 
 textarea {
   width: 100%;
   box-sizing: border-box;
-  min-height: 70px;
-  padding: 8px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+  min-height: 90px;
+  max-height: 190px;
+  padding: 12px;
+  border: 1px solid #e0e0ea;
+  border-radius: 8px;
   font-size: 13px;
+  line-height: 1.55;
   resize: vertical;
   font-family: inherit;
+  background: white;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  text-align: left;
+  margin-bottom: 14px;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
 textarea:focus {
   outline: none;
   border-color: #4F46E5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 10px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 button {
   width: 100%;
-  margin-top: 8px;
-  padding: 10px;
-  background: #4F46E5;
-  color: white;
+  padding: 11px;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
 }
 
-button:hover {
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background: #d1d5db !important;
+  color: #9ca3af !important;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+#enhanceBtn {
+  background: #4F46E5;
+  color: white;
+}
+#enhanceBtn:hover:not(:disabled) {
   background: #4338CA;
+  box-shadow: 0 4px 8px rgb(79 70 229 / 0.25);
 }
 
 #copyBtn {
   background: #10B981;
+  color: white;
 }
-
-#copyBtn:hover {
+#copyBtn:hover:not(:disabled) {
   background: #059669;
+  box-shadow: 0 4px 8px rgb(16 185 129 / 0.25);
 }
 
 #loading {
@@ -73,33 +159,20 @@ button:hover {
   font-size: 12px;
   color: #6b7280;
   margin-top: 8px;
+  font-weight: 500;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 4px;
+.textarea-wrapper {
+  position: relative;
 }
 
-.header h2 {
-  margin: 0;
-}
-
-#maximizeBtn {
-  width: auto;
-  margin-top: 0;
-  padding: 4px 8px;
-  background: transparent;
-  color: #4F46E5;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: 15px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-#maximizeBtn:hover {
-  background: #eef2ff;
-  border-color: #4F46E5;
+.fade-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  right: 7px;
+  height: 24px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95));
+  border-radius: 0 0 8px 8px;
+  pointer-events: none;
 }
