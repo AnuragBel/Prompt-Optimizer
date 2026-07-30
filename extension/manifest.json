@@ -14,5 +14,5 @@
     "service_worker": "background/service-worker.js"
   },
   "permissions": ["storage", "tabs", "windows"],
-  "host_permissions": ["http://localhost:3000/*"]
+  "host_permissions": ["https://prompt-optimizer-pdcf.onrender.com/*"]
 }

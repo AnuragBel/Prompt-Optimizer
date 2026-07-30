@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/enhance";
+const API_URL = "https://prompt-optimizer-pdcf.onrender.com/api/enhance";
 
 let popupWindowId = null;
 
